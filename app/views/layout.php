@@ -31,8 +31,8 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="<?= baseUrl() ?>">
-                    <img src="<?= asset('img/logo.png') ?>" alt="<?= APP_NAME ?>" class="logo">
-                    <span><?= APP_NAME ?></span>
+                    <img src="<?= asset('assets/quran.png') ?>" alt="<?= APP_NAME ?>" class="logo">
+                   
                 </a>
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">

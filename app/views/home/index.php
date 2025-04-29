@@ -20,7 +20,7 @@ $pageTitle = 'الرئيسية';
             </div>
             <div class="col-lg-6">
                 <div class="hero-image">
-                    <img src="<?= asset('img/quran-hero.png') ?>" alt="القرآن الكريم" class="img-fluid">
+                    <img src="<?= asset('assets/main.png') ?>" alt="القرآن الكريم" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -201,7 +201,7 @@ $pageTitle = 'الرئيسية';
                     <div class="surah-decoration">
                         <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
                         <div class="decorative-frame">
-                            <img src="<?= asset('img/quran-frame.png') ?>" alt="إطار قرآني" class="img-fluid">
+                            <img src="<?= asset('assets/chibi.png') ?>" alt="إطار قرآني" class="img-fluid">
                         </div>
                     </div>
                 </div>
