@@ -19,8 +19,16 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS user_preferences (
     user_id INT PRIMARY KEY,
     theme VARCHAR(20) DEFAULT 'light',
-    font_size DECIMAL(3,1) DEFAULT 1.8,
-    preferred_reciter VARCHAR(50) DEFAULT 'ar.alafasy',
+    quran_font VARCHAR(50) DEFAULT 'Amiri',
+    quran_font_size INT DEFAULT 22,
+    translation_display TINYINT(1) DEFAULT 1,
+    tafsir_display TINYINT(1) DEFAULT 0,
+    reciter_id INT DEFAULT 1,
+    auto_play_audio TINYINT(1) DEFAULT 0,
+    notification_daily_verse TINYINT(1) DEFAULT 1,
+    notification_prayer_times TINYINT(1) DEFAULT 1,
+    notification_newsletters TINYINT(1) DEFAULT 0,
+    browser_notifications TINYINT(1) DEFAULT 0,
     last_surah INT DEFAULT 1,
     last_ayah INT DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -61,13 +69,38 @@ CREATE TABLE IF NOT EXISTS chat_history (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+-- Reciters table
+CREATE TABLE IF NOT EXISTS reciters (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    identifier VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert sample reciters
+INSERT INTO reciters (name, identifier) VALUES
+('مشاري راشد العفاسي', 'ar.alafasy'),
+('عبد الباسط عبد الصمد', 'ar.abdulbasitmurattal'),
+('سعد الغامدي', 'ar.saadalghamdi'),
+('ماهر المعيقلي', 'ar.mahermuaiqly'),
+('محمود خليل الحصري', 'ar.husary');
+
 -- Insert sample user
 INSERT INTO users (name, email, password) VALUES
 ('Ahmed', 'ahmed@example.com', '$2y$10$L3HG2Ww.q17V5K4BVkc5nu5kQnH3Wc.UZtw67BdzfhGBh.tFQxgkO'); -- password: password123
 
 -- Insert sample user preferences
-INSERT INTO user_preferences (user_id, theme, preferred_reciter) VALUES
-(1, 'light', 'ar.alafasy');
+INSERT INTO user_preferences (
+    user_id, 
+    theme, 
+    quran_font, 
+    quran_font_size, 
+    translation_display, 
+    tafsir_display, 
+    reciter_id, 
+    auto_play_audio
+) VALUES
+(1, 'light', 'Amiri', 22, 1, 0, 1, 0);
 
 -- Insert sample bookmarks
 INSERT INTO bookmarks (user_id, surah_number, ayah_number, name) VALUES

@@ -68,6 +68,44 @@ switch ($path) {
             $controller->register();
         }
         break;
+    case '/logout':
+        require __DIR__ . '/app/controllers/AuthController.php';
+        $controller = new AuthController();
+        $controller->logout();
+        break;
+    case '/profile':
+        require __DIR__ . '/app/controllers/ProfileController.php';
+        $controller = new ProfileController();
+        $controller->index();
+        break;
+    case '/profile/update':
+        require __DIR__ . '/app/controllers/ProfileController.php';
+        $controller = new ProfileController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->updateProfile();
+        } else {
+            $controller->index();
+        }
+        break;
+    case '/profile/history':
+        require __DIR__ . '/app/controllers/ProfileController.php';
+        $controller = new ProfileController();
+        $controller->readingHistory();
+        break;
+    case '/settings':
+        require __DIR__ . '/app/controllers/ProfileController.php';
+        $controller = new ProfileController();
+        $controller->settings();
+        break;
+    case '/settings/update':
+        require __DIR__ . '/app/controllers/ProfileController.php';
+        $controller = new ProfileController();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $controller->updateSettings();
+        } else {
+            $controller->settings();
+        }
+        break;
     default:
         // Handle API requests
         if (strpos($path, '/api/') === 0) {

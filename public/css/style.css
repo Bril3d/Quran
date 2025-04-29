@@ -992,4 +992,86 @@ body.dark-theme {
 .auth-links {
     margin-top: 20px;
     text-align: center;
+}
+
+/* Profile & Settings Pages
+-------------------------------------------------- */
+.profile-page,
+.settings-page {
+    padding: 30px 0;
+}
+
+.profile-sidebar {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.profile-avatar {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.profile-stats {
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.settings-nav .list-group-item {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+
+.settings-nav .list-group-item:hover {
+    background-color: rgba(var(--primary-rgb), 0.1);
+}
+
+.settings-nav .list-group-item.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+.dark-theme .settings-nav .list-group-item {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.dark-theme .settings-nav .list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .settings-nav .list-group-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.card-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--primary-color);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--primary-color);
+}
+
+.font-size-value {
+    min-width: 50px;
+    text-align: center;
 } 

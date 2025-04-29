@@ -191,10 +191,22 @@ class User {
      * 
      * @param int $userId The user ID
      * @param int $limit The maximum number of records to return
+     * @param int $offset The offset for pagination
      * @return array The reading history
      */
-    public function getReadingHistory($userId, $limit = 10) {
-        return $this->db->fetchAll("SELECT * FROM reading_history WHERE user_id = ? ORDER BY timestamp DESC LIMIT ?", [$userId, $limit]);
+    public function getReadingHistory($userId, $limit = 10, $offset = 0) {
+        return $this->db->fetchAll("SELECT * FROM reading_history WHERE user_id = ? ORDER BY timestamp DESC LIMIT ? OFFSET ?", [$userId, $limit, $offset]);
+    }
+    
+    /**
+     * Get the total count of reading history entries
+     * 
+     * @param int $userId The user ID
+     * @return int The total count
+     */
+    public function getReadingHistoryCount($userId) {
+        $result = $this->db->fetchOne("SELECT COUNT(*) as count FROM reading_history WHERE user_id = ?", [$userId]);
+        return $result ? (int)$result['count'] : 0;
     }
     
     /**
