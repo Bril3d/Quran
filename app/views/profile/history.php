@@ -48,7 +48,7 @@
                                             <td><?= $history['ayah_number'] ?></td>
                                             <td><?= date('Y-m-d H:i', strtotime($history['timestamp'])) ?></td>
                                             <td>
-                                                <a href="<?= baseUrl() ?>/quran/<?= $history['surah_number'] ?>/<?= $history['ayah_number'] ?>" class="btn btn-sm btn-outline-primary" title="الذهاب إلى الآية">
+                                                <a href="<?= baseUrl() ?>/quran?surah=<?= $history['surah_number'] ?>" class="btn btn-sm btn-outline-primary" title="الذهاب إلى الآية">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
                                             </td>
