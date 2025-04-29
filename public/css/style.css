@@ -176,11 +176,25 @@ body.dark-theme {
 .navbar-nav .nav-link {
     padding: 0.5rem 1rem;
     font-weight: 500;
+    color: var(--light-text);
 }
 
 .navbar-nav .nav-link:hover {
     color: var(--primary-color);
 }
+
+.dark-theme .navbar-nav .nav-link {
+    color: white;
+}
+
+.dark-theme .arabic-name {
+    color: rgb(177, 177, 177);
+}
+
+.dark-theme .english-name {
+    color: rgb(61, 61, 61);
+}
+
 
 /* Hero Section
 -------------------------------------------------- */
@@ -550,7 +564,7 @@ body.dark-theme {
 .surah-list-item.active .surah-number,
 .surah-list-item.active .surah-name,
 .surah-list-item.active .ayah-count {
-    color: white;
+    color: gray;
 }
 
 .quran-text {
