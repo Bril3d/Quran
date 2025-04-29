@@ -212,10 +212,14 @@ body.dark-theme {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url('../img/pattern.png');
+    background-image: url('../assets/pattern.jpg');
     background-size: 200px;
-    opacity: 0.05;
+    opacity: 0.5;
     z-index: 0;
+}
+
+.dark-theme .hero-section::before {
+    opacity: 0.1;
 }
 
 .hero-content {
