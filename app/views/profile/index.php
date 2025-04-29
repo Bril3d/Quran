@@ -138,10 +138,10 @@
                                             <td><?= $bookmark['name'] ? htmlspecialchars($bookmark['name']) : '-' ?></td>
                                             <td><?= date('Y-m-d', strtotime($bookmark['created_at'])) ?></td>
                                             <td>
-                                                <a href="<?= baseUrl() ?>/quran/<?= $bookmark['surah_number'] ?>/<?= $bookmark['ayah_number'] ?>" class="btn btn-sm btn-outline-primary" title="الذهاب إلى الآية">
+                                                <a href="<?= baseUrl() ?>/quran?surah=<?= $bookmark['surah_number'] ?>" class="btn btn-sm btn-outline-primary" title="الذهاب إلى الآية">
                                                     <i class="fas fa-eye"></i>
                                                 </a>
-                                                <a href="<?= baseUrl() ?>/bookmark/delete/<?= $bookmark['id'] ?>" class="btn btn-sm btn-outline-danger" title="حذف" onclick="return confirm('هل أنت متأكد من حذف هذه العلامة المرجعية؟')">
+                                                <a href="<?= baseUrl() ?>/api/quran/bookmark-delete/<?= $bookmark['id'] ?>" class="btn btn-sm btn-outline-danger" title="حذف" onclick="return confirm('هل أنت متأكد من حذف هذه العلامة المرجعية؟')">
                                                     <i class="fas fa-trash"></i>
                                                 </a>
                                             </td>
