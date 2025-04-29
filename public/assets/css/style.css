@@ -1,0 +1,175 @@
+/* General styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Arabic text styles */
+.arabic-text {
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    line-height: 2;
+    text-align: right;
+    direction: rtl;
+}
+
+.verse-text {
+    font-size: 22px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* Quran page styles */
+.quran-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.surah-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.ayah-number {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    margin: 0 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Audio player styles */
+.audio-player-container {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+.ayah-list {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+
+.ayah-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.ayah-item:hover {
+    background-color: #f0f0f0;
+}
+
+.ayah-item.active {
+    background-color: #e9f5ff;
+    border-color: #c9e3ff;
+}
+
+/* Navigation styles */
+.surah-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.nav-button {
+    padding: 8px 16px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nav-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Bookmark styles */
+.bookmark-btn {
+    background: none;
+    border: none;
+    color: #ffc107;
+    cursor: pointer;
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+
+.bookmark-btn:hover {
+    transform: scale(1.2);
+}
+
+.bookmark-active {
+    color: #ffc107;
+}
+
+.bookmark-inactive {
+    color: #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .verse-text {
+        font-size: 18px;
+        padding: 10px;
+    }
+    
+    .ayah-number {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        font-size: 12px;
+    }
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+    
+    .verse-text, 
+    .audio-player-container {
+        background-color: #2d3133;
+    }
+    
+    .ayah-item {
+        border-color: #343a40;
+    }
+    
+    .ayah-item:hover {
+        background-color: #343a40;
+    }
+    
+    .ayah-item.active {
+        background-color: #284255;
+        border-color: #3a5a7d;
+    }
+    
+    .nav-button {
+        background-color: #343a40;
+        color: #f0f0f0;
+    }
+    
+    .nav-button:hover {
+        background-color: #454d55;
+    }
+    
+    .ayah-number {
+        background-color: #343a40;
+        color: #c0c0c0;
+    }
+} 
