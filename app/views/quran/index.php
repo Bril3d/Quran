@@ -304,7 +304,7 @@ $pageTitle = 'القرآن الكريم';
                 const name = document.querySelector('.surah-title').textContent.trim();
                 
                 // Add bookmark via API
-                fetch(`${baseUrl}/add-bookmark`, {
+                fetch(`${baseUrl}/api/quran/add-bookmark`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',

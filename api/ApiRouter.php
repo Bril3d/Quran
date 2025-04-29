@@ -20,6 +20,9 @@ class ApiRouter {
         // Get the API endpoint
         $endpoint = isset($path[0]) ? $path[0] : '';
         
+        // Log the API request details
+        error_log("API Router: Endpoint = '$endpoint', Full path = " . print_r($path, true));
+        
         // Handle the API request based on the endpoint
         switch ($endpoint) {
             case 'quran':
@@ -38,7 +41,7 @@ class ApiRouter {
                 $this->handleUserApi($path);
                 break;
             default:
-                $this->sendResponse(['error' => 'Invalid API endpoint'], 404);
+                $this->sendResponse(['error' => 'Invalid API endpoint: ' . $endpoint], 404);
                 break;
         }
     }
@@ -66,7 +69,7 @@ class ApiRouter {
                 $controller->removeBookmark();
                 break;
             default:
-                $this->sendResponse(['error' => 'Invalid Quran API action'], 404);
+                $this->sendResponse(['error' => 'Invalid Quran API action: ' . $action], 404);
                 break;
         }
     }

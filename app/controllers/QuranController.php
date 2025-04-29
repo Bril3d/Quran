@@ -245,21 +245,50 @@ class QuranController extends Controller {
      * @return void Outputs JSON response
      */
     public function getAyahAudio() {
-        $surah = $this->get('surah');
-        $ayah = $this->get('ayah');
-        $reciter = $this->get('reciter', 'ar.alafasy');
-        
-        if (!$surah || !$ayah) {
+        try {
+            $surah = $this->get('surah');
+            $ayah = $this->get('ayah');
+            $reciter = $this->get('reciter', 'ar.alafasy');
+            
+            if (!$surah || !$ayah) {
+                header('Content-Type: application/json');
+                echo json_encode(['error' => 'Missing surah or ayah parameter']);
+                return;
+            }
+            
+            // Validate parameters
+            if (!is_numeric($surah) || !is_numeric($ayah)) {
+                header('Content-Type: application/json');
+                echo json_encode(['error' => 'Surah and ayah must be numeric']);
+                return;
+            }
+            
+            // Validate reciter
+            $reciters = $this->getReciters();
+            if (!isset($reciters[$reciter])) {
+                header('Content-Type: application/json');
+                echo json_encode(['error' => 'Invalid reciter: ' . $reciter]);
+                return;
+            }
+            
+            $url = QURAN_API_URL . '/ayah/' . $surah . ':' . $ayah . '/' . $reciter;
+            error_log("Making ayah audio request to: " . $url);
+            
+            $response = $this->apiRequest($url, 'GET', [], true);
+            
+            if (!$response) {
+                header('Content-Type: application/json');
+                echo json_encode(['error' => 'Failed to get audio data from API']);
+                return;
+            }
+            
             header('Content-Type: application/json');
-            echo json_encode(['error' => 'Missing surah or ayah parameter']);
-            return;
+            echo json_encode($response);
+        } catch (Exception $e) {
+            error_log('Error in getAyahAudio: ' . $e->getMessage());
+            header('Content-Type: application/json');
+            echo json_encode(['error' => 'Internal server error: ' . $e->getMessage()]);
         }
-        
-        $url = QURAN_API_URL . '/ayah/' . $surah . ':' . $ayah . '/' . $reciter;
-        $response = $this->apiRequest($url);
-        
-        header('Content-Type: application/json');
-        echo json_encode($response);
     }
     
     /**

@@ -109,6 +109,9 @@ switch ($path) {
     default:
         // Handle API requests
         if (strpos($path, '/api/') === 0) {
+            // Log API request for debugging
+            error_log("API Request: " . $path . " with query: " . $_SERVER['QUERY_STRING']);
+            
             require __DIR__ . '/api/ApiRouter.php';
             $router = new ApiRouter();
             $router->route($path);
