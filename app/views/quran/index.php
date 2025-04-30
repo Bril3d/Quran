@@ -62,7 +62,7 @@ $pageTitle = 'القرآن الكريم';
                                             </button>
                                             <ul class="dropdown-menu">
                                                 <?php foreach($reciters as $id => $name): ?>
-                                                    <li><a class="dropdown-item listen-reciter" href="#" data-reciter="<?= $id ?>" data-surah="<?= $surah['number'] ?>"><?= $name ?></a></li>
+                                                    <li><a class="dropdown-item listen-reciter" href="<?= baseUrl() ?>/audio?surah=<?= $surah['number'] ?>&reciter=<?= $id ?>" data-reciter="<?= $id ?>" data-surah="<?= $surah['number'] ?>"><?= $name ?></a></li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         </div>
