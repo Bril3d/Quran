@@ -1078,4 +1078,24 @@ body.dark-theme {
 .font-size-value {
     min-width: 50px;
     text-align: center;
-} 
+}
+
+.dark-theme .card-body {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.dark-theme .card-header {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    
+}
+
+.dark-theme .table-striped>tbody>tr:nth-of-type(odd)>* {
+    background-color: gray;
+}
+
+.dark-theme .table-striped>tbody>tr:nth-of-type(even)>* {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
