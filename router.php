@@ -9,7 +9,8 @@ if (php_sapi_name() === 'cli-server') {
     if (empty($ext) || !in_array($ext, $extensions)) {
         // Log API requests 
         if (strpos($path, '/api/') === 0) {
-            error_log("Routing API request: " . $path . " with query: " . $_SERVER['QUERY_STRING']);
+            $query_string = isset($_SERVER['QUERY_STRING']) ? $_SERVER['QUERY_STRING'] : '';
+            error_log("Routing API request: " . $path . " with query: " . $query_string);
         }
         
         // Route everything through index.php

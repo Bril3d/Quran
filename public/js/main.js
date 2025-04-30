@@ -326,7 +326,7 @@ function showRecommendation(recommendation) {
     
     const surahEnglishName = document.createElement('div');
     surahEnglishName.className = 'recommendation-surah-english-name';
-    surahEnglishName.textContent = `${recommendation.englishName} (${recommendation.englishNameTranslation})`;
+    surahEnglishName.textContent = `${recommendation.englishName}`;
     
     surah.appendChild(surahName);
     surah.appendChild(surahEnglishName);
